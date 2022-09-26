@@ -1,3 +1,6 @@
+Una posible solución es llevar un array de visitados con las posiciones que ya fueron visitadas por el robot.
+
+
 ```
 import java.io.*;
         import java.util.*;
@@ -21,12 +24,13 @@ import java.io.*;
                         }else{
                             initialPosition--;
                         }
-                
-                        for(int j=0;j<visited.length;j++){
+                        //Me fijo si está visitado
+                        for(int j=0;j<visited.length && !repeated;j++){
                             if(visited[j]==initialPosition){
                                 repeated=true;
                             }
                         }
+                    //Si no está visitado, se suma uno al total de movimientos
                     if(!repeated){
                         totalMovements++;
                         visited[currentPosition++]=initialPosition;
